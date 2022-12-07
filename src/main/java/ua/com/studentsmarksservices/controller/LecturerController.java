@@ -6,6 +6,7 @@ import ua.com.studentsmarksservices.dto.LecturerDTO;
 import ua.com.studentsmarksservices.service.LecturerService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,4 +28,10 @@ public class LecturerController {
     public void deleteLecturer(@PathVariable Long lecturerId) {
         lecturerrService.deleteTeacher(lecturerId);
     }
+
+    @GetMapping("api/lectures")
+    public List<LecturerDTO> getAll() {
+        return lecturerrService.getAll();
+    }
 }
+

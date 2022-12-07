@@ -10,6 +10,9 @@ import ua.com.studentsmarksservices.repository.SemesterRepository;
 import ua.com.studentsmarksservices.validator.AcademicYearValidator;
 import ua.com.studentsmarksservices.validator.SemesterValidator;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class SemesterService {
@@ -18,6 +21,7 @@ public class SemesterService {
 
     private final SemesterRepository semesterRepository;
     private final AcademicYearValidator academicYearValidator;
+    private final SemesterMapper semesterMapper;
 
     public void createSemester(AcademicYearDTO academicYearDTO) {
         academicYearValidator.validate(academicYearDTO);
@@ -33,5 +37,11 @@ public class SemesterService {
                 .year(year)
                 .type(type)
                 .build();
+    }
+
+    public List<SemesterDTO> getAll() {
+        return semesterRepository.findAll().stream()
+                .filter(semester -> semester.isOpen())
+                .map(semester -> semesterMapper.mapToSemesterDTO(semester)).collect(Collectors.toList());
     }
 }

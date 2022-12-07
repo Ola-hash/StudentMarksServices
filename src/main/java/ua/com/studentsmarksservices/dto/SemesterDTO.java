@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -17,13 +19,10 @@ import java.time.LocalDate;
 public class SemesterDTO {
     private Long semesterId;
 
-    @NotNull
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    private LocalDate startDate;
+    @NotBlank(message = "not.blank")
+    private Integer year;
+    @NotBlank(message = "not.blank")
+    private String type;
 
-    @NotNull
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    private LocalDate endDate;
+    private boolean isOpen;
 }

@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.com.studentsmarksservices.dto.SubjectDTO;
 import ua.com.studentsmarksservices.service.SubjectService;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class SubjectController {
@@ -19,4 +21,11 @@ public class SubjectController {
     public void deleteSubject(@PathVariable Long subjectId) {
         subjectService.deleteSubject(subjectId);
     }
+
+    @GetMapping("api/subjects")
+    public List<SubjectDTO> getAll() {
+        return subjectService.getAll();
+    }
 }
+
+

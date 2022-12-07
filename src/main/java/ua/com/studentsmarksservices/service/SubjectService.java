@@ -10,6 +10,9 @@ import ua.com.studentsmarksservices.mapper.SubjectMapper;
 import ua.com.studentsmarksservices.repository.CourseRepository;
 import ua.com.studentsmarksservices.repository.SubjectRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class SubjectService {
@@ -26,6 +29,11 @@ public class SubjectService {
         Subject subjectToDelete = subjectRepository.findById(subjectId)
                 .orElseThrow(() -> new ValidationException("Nie znaleziono kierunku studiów o podanym id"));
         subjectRepository.delete(subjectToDelete);
+    }
+
+    public List<SubjectDTO> getAll() {
+        return subjectRepository.findAll().stream()
+                .map(subject -> subjectMapper.mapToSubjectDTO(subject)).collect(Collectors.toList());
     }
 
 

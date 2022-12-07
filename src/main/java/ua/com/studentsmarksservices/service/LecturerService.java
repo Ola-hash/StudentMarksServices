@@ -8,6 +8,9 @@ import ua.com.studentsmarksservices.exceptions.ValidationException;
 import ua.com.studentsmarksservices.mapper.LecturerMapper;
 import ua.com.studentsmarksservices.repository.LecturerRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class LecturerService {
@@ -32,5 +35,10 @@ public class LecturerService {
         Lecturer lecturerToDelete = lecturerRepository.findById(lecturerId)
                 .orElseThrow(() -> new ValidationException("Nie znaleziono Nauczyciela o podanym id."));
         lecturerRepository.delete(lecturerToDelete);
+    }
+
+    public List<LecturerDTO> getAll(){
+        return lecturerRepository.findAll().stream()
+                .map(lecturer -> lecturerMapper.mapToLectureDTO(lecturer)).collect(Collectors.toList());
     }
 }

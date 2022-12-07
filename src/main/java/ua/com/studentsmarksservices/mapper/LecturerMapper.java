@@ -17,6 +17,7 @@ public class LecturerMapper {
 
     public LecturerDTO mapToLectureDTO(Lecturer lecturer) {
         return LecturerDTO.builder()
+                .lecturerId(lecturer.getId())
                 .firstName(lecturer.getPersonalData().getFirstName())
                 .lastName(lecturer.getPersonalData().getLastName())
                 .email(lecturer.getPersonalData().getEmail()).build();

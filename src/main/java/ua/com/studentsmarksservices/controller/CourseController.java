@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.com.studentsmarksservices.dto.CourseDTO;
 import ua.com.studentsmarksservices.service.CourseService;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class CourseController {
@@ -20,4 +22,10 @@ public class CourseController {
     public void deleteCourse(@PathVariable Long courseId) {
         courseService.deleteCourse(courseId);
     }
+
+    @GetMapping("api/courses")
+    public List<CourseDTO> getAll() {
+        return courseService.getAll();
+    }
 }
+
