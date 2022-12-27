@@ -29,4 +29,8 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     private Set<StudentClasses> studentClasses = new HashSet<>();
+
+    @ManyToOne()
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
 }

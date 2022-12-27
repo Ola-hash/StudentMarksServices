@@ -1,0 +1,44 @@
+<div class="content-page create-lecturer">
+  <div [formGroup]="lectureForm" class="create-lecturer__form">
+    <div class="create-lecturer__header">
+      <h2 class="header-primary">Dodaj nauczyciela</h2>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Imię</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="firstName">
+        <mat-error>
+          <div *ngIf="hasError('firstName','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Nazwisko</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="lastName">
+        <mat-error>
+          <div *ngIf="hasError('lastName','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Email</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="email">
+        <mat-error>
+          <div *ngIf="hasError('email','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-2">
+      <button (click)="clickSaveLecturer()" mat-flat-button mat-button class="button-primary">Zapisz</button>
+    </div>
+  </div>
+</div>
+

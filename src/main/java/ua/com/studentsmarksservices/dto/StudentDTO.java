@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -12,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 public class StudentDTO {
     private Long studentId;
 
-    @NotBlank(message = "not.blank")
     private String index;
     @NotBlank(message = "not.blank")
     private String firstName;
@@ -20,4 +20,6 @@ public class StudentDTO {
     private String lastName;
     @NotBlank(message = "not.blank")
     private String email;
+    @NotNull
+    private Long subjectId;
 }

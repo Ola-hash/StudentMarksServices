@@ -2,6 +2,7 @@ package ua.com.studentsmarksservices.dto;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
@@ -13,16 +14,23 @@ public class ClassesDTO {
     private Long classesId;
 
     @NotBlank(message = "not.blank")
-    private String typ;
+    private String type;
     @NotBlank(message = "not.blank")
     private String code;
     @NotBlank(message = "not.blank")
-    private String classDate;
+    private String classesDate;
     @NotBlank(message = "not.blank")
-    private String classroom;
-
-    private Long courseSubjectId;
+    private String classesRoom;
+    @NonNull
+    private Long courseId;
+    @NonNull
     private Long lecturerId;
+    @NonNull
+    private Long subjectId;
+    @NonNull
+    private Long semesterId;
 
+    private String courseName;
+    private String subjectName;
 
 }

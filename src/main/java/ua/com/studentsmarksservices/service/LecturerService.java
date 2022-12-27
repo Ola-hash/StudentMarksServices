@@ -8,6 +8,7 @@ import ua.com.studentsmarksservices.exceptions.ValidationException;
 import ua.com.studentsmarksservices.mapper.LecturerMapper;
 import ua.com.studentsmarksservices.repository.LecturerRepository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,8 +38,10 @@ public class LecturerService {
         lecturerRepository.delete(lecturerToDelete);
     }
 
-    public List<LecturerDTO> getAll(){
+    public List<LecturerDTO> getAll() {
         return lecturerRepository.findAll().stream()
-                .map(lecturer -> lecturerMapper.mapToLectureDTO(lecturer)).collect(Collectors.toList());
+                .map(lecturer -> lecturerMapper.mapToLectureDTO(lecturer))
+                .sorted(Comparator.comparing(LecturerDTO::getLastName).thenComparing(LecturerDTO::getFirstName))
+                .collect(Collectors.toList());
     }
 }

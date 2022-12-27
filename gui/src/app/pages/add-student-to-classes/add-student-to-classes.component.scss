@@ -1,0 +1,24 @@
+.add-student-to-classes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__form {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid #7C7C7C;
+    border-radius: 10px;
+  }
+
+  &__results {
+    width: 100%;
+  }
+}

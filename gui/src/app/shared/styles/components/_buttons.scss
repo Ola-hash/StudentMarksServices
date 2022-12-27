@@ -1,0 +1,12 @@
+.button-primary {
+  &.mat-flat-button {
+    height: 42px;
+    font-size: 16px;
+    background: #7C7C7C;
+    border-radius: 5px;
+    opacity: 1;
+    min-width: unset;
+    font-weight: 500;
+    color: #FFFF;
+  }
+}

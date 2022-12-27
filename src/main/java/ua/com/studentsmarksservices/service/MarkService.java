@@ -1,6 +1,5 @@
 package ua.com.studentsmarksservices.service;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ua.com.studentsmarksservices.dto.MarkDTO;
@@ -20,7 +19,8 @@ public class MarkService {
 
 
     public void addMark(MarkDTO markDTO) {
-        StudentClasses studentClasses = studentClassesRepository.findById(markDTO.getStudentClassesId())
+
+        StudentClasses studentClasses = studentClassesRepository.findByStudentIdAndClassesId(markDTO.getStudentId(), markDTO.getClassesId())
                 .orElseThrow(() -> new ValidationException("Nie znaleziono podanych danych"));
         Mark mark = markMapper.mapToMark(markDTO);
         mark.setStudentClasses(studentClasses);

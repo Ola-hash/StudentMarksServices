@@ -3,7 +3,6 @@ package ua.com.studentsmarksservices.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +29,6 @@ public class Semester {
     private boolean isOpen;
 
     @OneToMany(mappedBy = "semester")
-    private Set<CourseSubject> courseSubjects = new HashSet<>();
+    private Set<Classes> classes = new HashSet<>();
 
 }

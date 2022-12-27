@@ -29,5 +29,5 @@ public class StudentClasses {
     private Classes classes;
 
     @OneToMany(mappedBy = "studentClasses")
-    private Set<Mark> marks= new HashSet<>();
+    private Set<Mark> marks = new HashSet<>();
 }

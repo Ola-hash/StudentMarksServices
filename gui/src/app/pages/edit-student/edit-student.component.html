@@ -1,0 +1,52 @@
+<div class="content-page create-student">
+  <div *ngIf="editForm" [formGroup]="editForm" class="create-student__form">
+    <div class="create-student__header">
+      <h2 class="header-primary">Edytuj studenta</h2>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Imię</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="firstName">
+        <mat-error>
+          <div *ngIf="hasError('firstName','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Nazwisko</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="lastName">
+        <mat-error>
+          <div *ngIf="hasError('lastName','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Email</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="email">
+        <mat-error>
+          <div *ngIf="hasError('email','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput disabled [value]="subjectModel?.name">
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-3">
+      <button (click)="editStudent()" mat-flat-button mat-button class="button-primary me-3">Zapisz
+      </button>
+      <button (click)="deleteStudent()" mat-flat-button mat-button class="button-primary">Usuń studenta</button>
+    </div>
+  </div>
+</div>
+

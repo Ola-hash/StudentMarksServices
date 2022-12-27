@@ -14,8 +14,8 @@ public class LecturerController {
 
     public final LecturerService lecturerrService;
 
-    @PostMapping("/api/lecturer")
-    public void createLecturer(@RequestBody LecturerDTO lecturerDTO) {
+    @PostMapping("api/lecturer")
+    public void createLecturer(@Valid @RequestBody LecturerDTO lecturerDTO) {
         lecturerrService.createLecturer(lecturerDTO);
     }
 

@@ -8,6 +8,7 @@ import ua.com.studentsmarksservices.exceptions.ValidationException;
 import ua.com.studentsmarksservices.mapper.CourseMapper;
 import ua.com.studentsmarksservices.repository.CourseRepository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,9 @@ public class CourseService {
 
     public List<CourseDTO> getAll() {
         return courseRepository.findAll().stream()
-                .map(course -> courseMapper.mapToCourseDTO(course)).collect(Collectors.toList());
+                .map(course -> courseMapper.mapToCourseDTO(course))
+                .sorted(Comparator.comparing(CourseDTO::getName))
+                .collect(Collectors.toList());
     }
 
 

@@ -3,8 +3,6 @@ package ua.com.studentsmarksservices.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -22,9 +20,6 @@ public class Mark {
 
     @Column(name = "value")
     private Integer value;
-
-    @Column(name = "type")
-    private String type;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_classes_id")

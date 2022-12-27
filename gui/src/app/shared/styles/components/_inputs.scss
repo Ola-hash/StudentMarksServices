@@ -1,0 +1,12 @@
+.input-primary {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  &__label {
+    font-size: 13px;
+  }
+
+}

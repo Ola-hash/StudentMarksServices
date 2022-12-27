@@ -26,6 +26,11 @@ public class SubjectController {
     public List<SubjectDTO> getAll() {
         return subjectService.getAll();
     }
+
+    @GetMapping("api/subjects/{id}")
+    public SubjectDTO getSubjectById(@PathVariable Long id) {
+        return subjectService.getSubjectById(id);
+    }
 }
 
 

@@ -9,9 +9,11 @@ public class SemesterMapper {
 
     public SemesterDTO mapToSemesterDTO(Semester semester) {
         return SemesterDTO.builder()
+                .semesterId(semester.getId())
                 .year(semester.getYear())
                 .type(semester.getType())
-                .isOpen(semester.isOpen()).build();
+                .isOpen(semester.isOpen())
+                .build();
     }
 
 }
