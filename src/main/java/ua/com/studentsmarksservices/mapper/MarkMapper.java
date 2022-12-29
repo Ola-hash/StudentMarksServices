@@ -9,6 +9,6 @@ public class MarkMapper {
     public Mark mapToMark(MarkDTO markDTO) {
         return Mark.builder()
                 .value(markDTO.getValue())
-                .type(markDTO.getType()).build();
+                .build();
     }
 }

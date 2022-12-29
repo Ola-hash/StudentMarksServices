@@ -4,6 +4,8 @@ package ua.com.studentsmarksservices.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -22,8 +24,7 @@ public class Course {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "course")
-    private Classes classes;
-
+    @OneToMany(mappedBy = "course")
+    private Set<Classes> classes = new HashSet<>();
 
 }

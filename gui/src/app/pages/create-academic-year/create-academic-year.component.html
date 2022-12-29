@@ -1,0 +1,34 @@
+<div class="content-page create-academic-year">
+
+  <div [formGroup]="academicForm" class="create-academic-year__form">
+    <div class="create-academic-year__header">
+      <h2 class="header-primary">Dodaj rok akademicki</h2>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Początek roku akademickiego </span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="startYear" >
+        <mat-error>
+          <div *ngIf="hasError('startYear','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Koniec roku akademickiego </span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="endYear">
+        <mat-error>
+          <div *ngIf="hasError('endYear','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-2">
+      <button (click)="clickSaveAcademicYear()" mat-flat-button mat-button class="button-primary">Zapisz</button>
+    </div>
+  </div>
+</div>
+

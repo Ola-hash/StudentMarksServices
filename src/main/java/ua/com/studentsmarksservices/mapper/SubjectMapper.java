@@ -15,6 +15,7 @@ public class SubjectMapper {
 
     public SubjectDTO mapToSubjectDTO(Subject subject) {
         return SubjectDTO.builder()
+                .subjectId(subject.getId())
                 .name(subject.getName())
                 .build();
     }

@@ -18,7 +18,7 @@ public class AcademicYearValidator {
         if (academicYearDTO.getStartYear() + 1 != academicYearDTO.getEndYear()) {
             throw new ValidationException("Koniec roku akademickiego musi być większy o jedne od początku");
         }
-        if (academicYearDTO.getStartYear() >= localDate.getYear() && localDate.getMonthValue() > MAX_MONTH_NUMBER) {
+        if (academicYearDTO.getStartYear() <= localDate.getYear() && localDate.getMonthValue() < MAX_MONTH_NUMBER) {
             throw new ValidationException("Podant rok akademicki już się rozpoczął");
         }
     }

@@ -1,0 +1,90 @@
+<div class="content-page add-student-to-classes">
+  <div *ngIf="addStudentToClassesForm" [formGroup]="addStudentToClassesForm" class="add-student-to-classes__form">
+    <div class="add-student-to-classes__header">
+      <h2 class="header-primary">Przypisz studenta do zajęć </h2>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Imię</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input disabled matInput [value]="studentModel?.firstName">
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Nazwisko</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input disabled matInput [value]="studentModel?.lastName">
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input disabled matInput [value]="subjectModel?.name">
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Przedmiot</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="courseId">
+          <mat-option *ngFor="let courseModel of courseModels" [value]="courseModel.courseId">
+            {{courseModel.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('courseId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Semestr</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="semesterId">
+          <mat-option *ngFor="let semesterModel of semesterModel" [value]="semesterModel.semesterId">
+            {{semesterModel.year}} {{semesterModel.type}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('semesterId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="add-student-to-classes__form-button mt-2">
+      <button (click)="clickSearchClasses()" mat-flat-button mat-button class="button-primary">Wyszukaj</button>
+    </div>
+  </div>
+  <div *ngIf="searchClasses" class="add-student-to-classes__results mt-4">
+    <h3 class="header-primary">Lista zajęć</h3>
+    <table mat-table [dataSource]="searchClasses" class="w-100">
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Rodzaj zajęć</th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef>Nazwa grupy</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseDate">
+        <th mat-header-cell *matHeaderCellDef> Data zajęć</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lecturer">
+        <th mat-header-cell *matHeaderCellDef> Prowadzący</th>
+        <td mat-cell *matCellDef="let element"> {{element.lecturerDTO.lastName}}  {{element.lecturerDTO.firstName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="addStudent">
+        <th mat-header-cell *matHeaderCellDef>Dodaj studenta do grupy</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="clickCreateStudentClasses(element.classesId)" mat-flat-button mat-button
+                  class="button-primary">
+            Dodaj
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

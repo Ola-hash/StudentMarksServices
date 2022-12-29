@@ -36,8 +36,8 @@ public class Classes {
     private Set<StudentClasses> studentClasses = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_subject_id")
-    private CourseSubject courseSubject;
+    @JoinColumn(name = "course_id")
+    private Course course;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lecturer_id")
@@ -46,10 +46,6 @@ public class Classes {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "subject_id")
     private Subject subject;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
-    private Course course;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "semester_id")

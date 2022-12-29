@@ -1,0 +1,82 @@
+<div class="content-page student-list">
+  <div class="create-student-list__header">
+    <h2 class="header-primary"> Wyszukiwanie studentów</h2>
+  </div>
+  <div [formGroup]="studentsForm" class="student-list__filters row">
+    <div class="input-primary input-primary__container col-2">
+      <span class="input-primary__label">Index</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="index">
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container col-2">
+      <span class="input-primary__label">Nazwisko</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container col-2">
+      <span class="select-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="subjectId">
+          <mat-option *ngFor="let subjectModel of subjectModels" [value]="subjectModel.subjectId">
+            {{subjectModel.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container col-2">
+      <span class="input-primary__label">Grupa zajęciowa</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="classesName">
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container col-2">
+      <span class="input-primary__label">Przedmiot</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="courseName">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="student-list__form-button mt-2">
+    <button (click)="click()" mat-flat-button mat-button class="button-primary">Wyszukaj</button>
+  </div>
+  <div class="student-list__results mt-4">
+    <h3 class="header-primary">Lista studentów</h3>
+    <table mat-table [dataSource]="searchStudentResultModels" class="w-100">
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>Numer indexu</th>
+        <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>Imię</th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Nazwisko</th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="subjectName">
+        <th mat-header-cell *matHeaderCellDef> Kierunek studiów</th>
+        <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="addClasses">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="navigateAddStudentToClasses(element.studentId)" mat-flat-button mat-button
+                  class="button-primary">
+            Przypisz do zajęć
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+
+

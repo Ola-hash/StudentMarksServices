@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class StudentClassesDTO {
-    private Long studentClassesId;
     private Long studentId;
     private Long classesId;
 }

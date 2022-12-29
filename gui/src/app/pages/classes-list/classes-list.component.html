@@ -1,0 +1,46 @@
+<div class="content-page classes-list">
+  <div class="classes-list__results mt-4">
+    <h3 class="header-primary">Lista zajęć</h3>
+    <table mat-table [dataSource]="searchClassesResultModels" class="w-100">
+      <ng-container matColumnDef="subjectName">
+        <th mat-header-cell *matHeaderCellDef>Kierunek studiów</th>
+        <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef>Przedmiot</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lecturer">
+        <th mat-header-cell *matHeaderCellDef>Prowadzący</th>
+        <td mat-cell *matCellDef="let element"> {{element.lecturerDTO.lastName}} {{element.lecturerDTO.firstName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Rodzaj zajęć</th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseDate">
+        <th mat-header-cell *matHeaderCellDef> Data zajęć</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseRoom">
+        <th mat-header-cell *matHeaderCellDef> Sala</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseRoom}} </td>
+      </ng-container>
+      <ng-container matColumnDef="numberOfStudents">
+        <th mat-header-cell *matHeaderCellDef> Ilość zapisanych studentów</th>
+        <td mat-cell *matCellDef="let element"> {{element.numberOfStudents}} </td>
+      </ng-container>
+      <ng-container matColumnDef="addStudent">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="navigateToStudentClasses(element.classesId)" mat-flat-button mat-button
+                  class="button-primary">
+            Wejdź do grupy
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

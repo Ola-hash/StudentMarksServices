@@ -1,0 +1,24 @@
+<div class="content-page create-course">
+
+  <div [formGroup]="courseForm" class="create-course__form">
+    <div class="create-subject__header">
+      <h2 class="header-primary">Dodaj przedmiot</h2>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Nazwa przedmiotu</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="name">
+        <mat-error>
+          <div *ngIf="hasError('name','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-2">
+      <button (click)="clickSaveSubject()" mat-flat-button mat-button class="button-primary">Zapisz</button>
+    </div>
+  </div>
+</div>
+
+

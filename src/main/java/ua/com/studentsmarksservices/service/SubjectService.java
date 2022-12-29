@@ -5,11 +5,10 @@ import org.springframework.stereotype.Service;
 import ua.com.studentsmarksservices.dto.SubjectDTO;
 import ua.com.studentsmarksservices.entity.Subject;
 import ua.com.studentsmarksservices.exceptions.ValidationException;
-import ua.com.studentsmarksservices.mapper.CourseMapper;
 import ua.com.studentsmarksservices.mapper.SubjectMapper;
-import ua.com.studentsmarksservices.repository.CourseRepository;
 import ua.com.studentsmarksservices.repository.SubjectRepository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,8 +32,14 @@ public class SubjectService {
 
     public List<SubjectDTO> getAll() {
         return subjectRepository.findAll().stream()
-                .map(subject -> subjectMapper.mapToSubjectDTO(subject)).collect(Collectors.toList());
+                .map(subject -> subjectMapper.mapToSubjectDTO(subject))
+                .sorted(Comparator.comparing(SubjectDTO::getName).thenComparing(SubjectDTO::getName))
+                .collect(Collectors.toList());
     }
 
+    public SubjectDTO getSubjectById(Long id) {
+        return subjectRepository.findById(id).map(subject -> subjectMapper.mapToSubjectDTO(subject))
+                .orElseThrow(() -> new RuntimeException("Nieznaleziono takiego kierunku studiów"));
+    }
 
 }

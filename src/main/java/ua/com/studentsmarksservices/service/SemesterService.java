@@ -8,8 +8,8 @@ import ua.com.studentsmarksservices.entity.Semester;
 import ua.com.studentsmarksservices.mapper.SemesterMapper;
 import ua.com.studentsmarksservices.repository.SemesterRepository;
 import ua.com.studentsmarksservices.validator.AcademicYearValidator;
-import ua.com.studentsmarksservices.validator.SemesterValidator;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +42,8 @@ public class SemesterService {
     public List<SemesterDTO> getAll() {
         return semesterRepository.findAll().stream()
                 .filter(semester -> semester.isOpen())
-                .map(semester -> semesterMapper.mapToSemesterDTO(semester)).collect(Collectors.toList());
+                .sorted(Comparator.comparing(Semester::getYear))
+                .map(semester -> semesterMapper.mapToSemesterDTO(semester))
+                .collect(Collectors.toList());
     }
 }

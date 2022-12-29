@@ -1,0 +1,32 @@
+<div [formGroup]="addMarkToStudentForm" class="content-page add-mark-to-student">
+  <h2 class="header-primary">Szczegóły studenta</h2>
+  <div class="input-primary input-primary__container">
+    <span class="input-primary__label">Index</span>
+    <mat-form-field appearance="outline" floatLabel="never">
+      <input disabled matInput [value]="studentModel?.index">
+    </mat-form-field>
+  </div>
+  <div class="input-primary input-primary__container">
+    <span class="input-primary__label">Imię</span>
+    <mat-form-field appearance="outline" floatLabel="never">
+      <input disabled matInput [value]="studentModel?.firstName">
+    </mat-form-field>
+  </div>
+  <div class="input-primary input-primary__container">
+    <span class="input-primary__label">Nazwisko</span>
+    <mat-form-field appearance="outline" floatLabel="never">
+      <input disabled matInput [value]="studentModel?.lastName">
+    </mat-form-field>
+  </div>
+  <div class="input-primary input-primary__container">
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Wpisz ocenę</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="value">
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-2">
+      <button (click)="addMark()" mat-flat-button mat-button class="button-primary">Dodaj</button>
+    </div>
+  </div>
+</div>

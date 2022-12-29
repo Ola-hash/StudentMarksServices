@@ -1,0 +1,119 @@
+<div class="content-page create-classes">
+
+  <div [formGroup]="classesForm" class="create-classes__form">
+    <div class="create-student__header">
+      <h2 class="header-primary">Utwórz zajęcia</h2>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="subjectId">
+          <mat-option *ngFor="let subjectModel of subjectModels" [value]="subjectModel.subjectId">
+            {{subjectModel.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('subjectId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Przedmiot</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="courseId">
+          <mat-option *ngFor="let courseModel of coursesModels" [value]="courseModel.courseId">
+            {{courseModel.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('courseId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Typ zajęć</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let classType of classTypes" [value]="classType">
+            {{classType}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('type','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Nazwa grupy</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="code">
+        <mat-error>
+          <div *ngIf="hasError('code','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Data zajęć</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="classesDate">
+        <mat-error>
+          <div *ngIf="hasError('classesDate','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Sala</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput formControlName="classesRoom">
+        <mat-error>
+          <div *ngIf="hasError('classesRoom','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Nauczyciel</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="lecturerId">
+          <mat-option *ngFor="let lecturerModel of lecturerModels" [value]="lecturerModel.lecturerId">
+            {{lecturerModel.lastName}} {{lecturerModel.firstName}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('lecturerId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Semestr</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <mat-select formControlName="semesterId">
+          <mat-option *ngFor="let semesterModel of semesterModels" [value]="semesterModel.semesterId">
+            {{semesterModel.year}} {{semesterModel.type}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <div *ngIf="hasError('semesterId','required')">
+            Pole nie może być puste
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="create-student__form-button mt-2">
+      <button (click)="clickSaveClasses()" mat-flat-button mat-button class="button-primary">Zapisz</button>
+    </div>
+  </div>
+</div>
