@@ -15,6 +15,7 @@ import ua.com.studentsmarksservices.repository.SubjectRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -27,9 +28,12 @@ public class StudentService {
     private final SubjectRepository subjectRepository;
 
     public void createStudent(StudentDTO studentDTO) {
+        Random rnd = new Random();
+        int index = rnd.nextInt(999999);
         Subject subject = subjectRepository.findById(studentDTO.getSubjectId())
                 .orElseThrow(() -> new ValidationException(("Nie znaleziono kierunku o podanym id")));
         Student student = studentMapper.mapToStudent(studentDTO, subject);
+        student.setIndex(String.format("%06d", index));
         studentRepository.save(student);
     }
 

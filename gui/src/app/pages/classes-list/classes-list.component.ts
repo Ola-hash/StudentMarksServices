@@ -41,7 +41,7 @@ export class ClassesListComponent implements OnInit {
   }
 
   public navigateToStudentClasses(id: number) {
-    this.router.navigate(['classes-student-list/' + id]).then();
+    this.router.navigate(['students-manage/classes-student-list/' + id]).then();
   }
 
 

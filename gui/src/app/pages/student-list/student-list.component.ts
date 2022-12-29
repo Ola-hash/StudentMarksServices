@@ -45,6 +45,6 @@ export class StudentListComponent implements OnInit {
   }
 
   public navigateAddStudentToClasses(studentId: number) {
-    this.router.navigate(['add-student-to-classes/', studentId]).then();
+    this.router.navigate(['students-manage/add-student-to-classes/', studentId]).then();
   }
 }

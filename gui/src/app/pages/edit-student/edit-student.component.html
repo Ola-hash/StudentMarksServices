@@ -33,6 +33,9 @@
           <div *ngIf="hasError('email','required')">
             Pole nie może być puste
           </div>
+          <div *ngIf="hasError('email','pattern')">
+            Nieprawidłowy email
+          </div>
         </mat-error>
       </mat-form-field>
     </div>

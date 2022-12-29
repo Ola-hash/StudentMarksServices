@@ -33,6 +33,23 @@
           <div *ngIf="hasError('email','required')">
             Pole nie może być puste
           </div>
+          <div *ngIf="hasError('email','pattern')">
+            Nieprawidłowy email
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-primary input-primary__container">
+      <span class="input-primary__label">Hasło</span>
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput type="password" formControlName="password">
+        <mat-error>
+          <div *ngIf="hasError('password','required')">
+            Pole nie może być puste
+          </div>
+          <div *ngIf="hasError('password','minlength')">
+            Hasło musi mieć minimum 8 znaków
+          </div>
         </mat-error>
       </mat-form-field>
     </div>

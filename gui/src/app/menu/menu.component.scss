@@ -1,0 +1,25 @@
+.navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
+
+.navbar-nav {
+  z-index: 9999;
+}
+
+.nav-link-logout {
+  width: 100%;
+  position: absolute;
+
+  a {
+    float: right;
+    padding-right: 2.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

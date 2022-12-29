@@ -62,7 +62,7 @@ export class CreateStudentComponent implements OnInit {
   }
 
   public navigate() {
-    this.router.navigate(['students-list']).then();
+    this.router.navigate(['students-manage/students-list']).then();
   }
 
 

@@ -38,7 +38,7 @@ export class ClassesStudentListComponent implements OnInit {
   }
 
   public navigateToStudent(studentId: number) {
-    this.router.navigate(['add-mark-to-student/' + this.classesId + "/" + studentId]).then();
+    this.router.navigate(['students-manage/add-mark-to-student/' + this.classesId + "/" + studentId]).then();
   }
 
 }

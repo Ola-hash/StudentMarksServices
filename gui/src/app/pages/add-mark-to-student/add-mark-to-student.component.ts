@@ -69,7 +69,7 @@ export class AddMarkToStudentComponent implements OnInit {
   }
 
   public navigate(lecturerId: number) {
-    this.router.navigate(['classes-student-list/' + lecturerId]).then();
+    this.router.navigate(['students-manage/classes-student-list/' + lecturerId]).then();
   }
 
 }

@@ -21,9 +21,9 @@
         <input disabled matInput [value]="subjectModel?.name">
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Przedmiot</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Przedmiot</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="courseId">
           <mat-option *ngFor="let courseModel of courseModels" [value]="courseModel.courseId">
             {{courseModel.name}}
@@ -36,9 +36,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Semestr</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Semestr</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="semesterId">
           <mat-option *ngFor="let semesterModel of semesterModel" [value]="semesterModel.semesterId">
             {{semesterModel.year}} {{semesterModel.type}}
@@ -55,8 +55,8 @@
       <button (click)="clickSearchClasses()" mat-flat-button mat-button class="button-primary">Wyszukaj</button>
     </div>
   </div>
-  <div class="add-student-to-classes__results mt-4">
-    <h3 class="header-primary"> Lista zajęć:</h3>
+  <div *ngIf="searchClasses" class="add-student-to-classes__results mt-4">
+    <h3 class="header-primary">Lista zajęć</h3>
     <table mat-table [dataSource]="searchClasses" class="w-100">
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef>Rodzaj zajęć</th>

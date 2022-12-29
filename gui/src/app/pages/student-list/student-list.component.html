@@ -1,6 +1,6 @@
 <div class="content-page student-list">
   <div class="create-student-list__header">
-    <h2 class="header-primary"> Wyszukiwanie studentów:</h2>
+    <h2 class="header-primary"> Wyszukiwanie studentów</h2>
   </div>
   <div [formGroup]="studentsForm" class="student-list__filters row">
     <div class="input-primary input-primary__container col-2">
@@ -15,11 +15,10 @@
         <input matInput formControlName="lastName">
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container col-2">
-      <mat-form-field appearance="fill">
-        <mat-label>Kierunek studiów</mat-label>
+    <div class="select-primary select-primary__container col-2">
+      <span class="select-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="subjectId">
-          <!--          wernuty zawtra-->
           <mat-option *ngFor="let subjectModel of subjectModels" [value]="subjectModel.subjectId">
             {{subjectModel.name}}
           </mat-option>
@@ -43,7 +42,7 @@
     <button (click)="click()" mat-flat-button mat-button class="button-primary">Wyszukaj</button>
   </div>
   <div class="student-list__results mt-4">
-    <h3 class="header-primary"> Lista studentów:</h3>
+    <h3 class="header-primary">Lista studentów</h3>
     <table mat-table [dataSource]="searchStudentResultModels" class="w-100">
       <ng-container matColumnDef="index">
         <th mat-header-cell *matHeaderCellDef>Numer indexu</th>

@@ -1,0 +1,17 @@
+.select-primary {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+  }
+
+  &__label {
+    size: 13px;
+    color: #707070;
+  }
+
+  .mat-form-field-appearance-outline,
+  .mat-form-field-outline {
+    color: #CECECE;
+  }
+}

@@ -35,13 +35,13 @@ export class EditStudentComponent implements OnInit {
         this.editForm = this.studentFormService.editForm(studentModel);
         this.subjectService.getSubjectById(studentModel.subjectId).subscribe(subjectResponse => {
           this.subjectModel = subjectResponse;
-        }, error => this.router.navigate(["students-list"]).then(() => this.toastrService.error(error.error.message)));
+        }, error => this.router.navigate(["students-manage/students-list"]).then(() => this.toastrService.error(error.error.message)));
       }, error => {
-        this.router.navigate(["students-list"]).then(() => this.toastrService.error(error.error.message))
+        this.router.navigate(["students-manage/students-list"]).then(() => this.toastrService.error(error.error.message))
 
       });
     } else {
-      this.router.navigate(["students-list"]).then(() => this.toastrService.error("Nieprawidłowy paramter id"))
+      this.router.navigate(["students-manage/students-list"]).then(() => this.toastrService.error("Nieprawidłowy paramter id"))
     }
   }
 
@@ -63,12 +63,12 @@ export class EditStudentComponent implements OnInit {
   }
 
   public navigate() {
-    this.router.navigate(['students-list']).then();
+    this.router.navigate(['students-manage/students-list']).then();
   }
 
   public deleteStudent() {
     this.studentService.deleteStudent(this.id)
-      .subscribe(() => this.router.navigate(['students-list']).then(() => this.toastrService.success("Pomyślnie usunięto studenta")),
+      .subscribe(() => this.router.navigate(['students-manage/students-list']).then(() => this.toastrService.success("Pomyślnie usunięto studenta")),
         error => this.toastrService.error("Wystąpił błąd podczas usuwania studenta"));
   }
 

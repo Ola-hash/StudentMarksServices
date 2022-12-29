@@ -1,5 +1,4 @@
 <div class="content-page create-student">
-
   <div [formGroup]="studentForm" class="create-student__form">
     <div class="create-student__header">
       <h2 class="header-primary">Dodaj studenta</h2>
@@ -34,12 +33,15 @@
           <div *ngIf="hasError('email','required')">
             Pole nie może być puste
           </div>
+          <div *ngIf="hasError('email','pattern')">
+            Nieprawidłowy email
+          </div>
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Kierunek studiów</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="subjectId">
           <mat-option *ngFor="let subjectModel of subjectModels" [value]="subjectModel.subjectId">
             {{subjectModel.name}}

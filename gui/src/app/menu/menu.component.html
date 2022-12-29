@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_ACADEMIC_YEAR)" class="nav-item">
+        <a class="nav-link" routerLink="create-academic-year" routerLinkActive="active">Utwórz rok akademicki</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_SUBJECT)" class="nav-item">
+        <a class="nav-link" routerLink="create-subject" routerLinkActive="active">Dodaj kierunek studiów</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_CLASSES)" class="nav-item">
+        <a class="nav-link" routerLink="create-course" routerLinkActive="active">Dodaj przedmiot</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_COURSE)" class="nav-item">
+        <a class="nav-link" routerLink="create-classes" routerLinkActive="active">Dodaj zajęcia</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_STUDENT)" class="nav-item">
+        <a class="nav-link" routerLink="create-student" routerLinkActive="active">Dodaj studenta</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.CREATE_LECTURER)" class="nav-item">
+        <a class="nav-link" routerLink="create-lecturer" routerLinkActive="active">Dodaj wykładowcę</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.READ_STUDENTS_LISTS)" class="nav-item">
+        <a class="nav-link" routerLink="students-list" routerLinkActive="active">Wyszukiwanie studentów</a>
+      </li>
+      <li *ngIf="hasPrivilege(allPrivileges.READ_CLASSES_LISTS)" class="nav-item">
+        <a class="nav-link" routerLink="classes-list/{{userDetails?.lecturerId}}" routerLinkActive="active">Lista
+          twoich zajęć</a>
+      </li>
+    </ul>
+    <div class="nav-link-logout">
+      <a (click)="clickLogout()">Wyloguj</a>
+    </div>
+  </div>
+</nav>
+
+
+

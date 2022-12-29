@@ -43,6 +43,12 @@ import {ClassesStudentListComponent} from "./pages/classes-student-list/classes-
 import {AddMarkToStudentComponent} from "./pages/add-mark-to-student/add-mark-to-student.component";
 import {AddMarkToStudentService} from "./services/add-mark-to-student.service";
 import {AddMarkToStudentFormService} from "./services/add-mark-to-student-form.service";
+import {MenuComponent} from './menu/menu.component';
+import {LoginComponent} from './pages/login/login.component';
+import {UserDetailsService} from './services/user-details.service';
+import {UserDetailsCacheService} from './services/user-details-cache.service';
+import {AuthService} from './services/auth.service';
+import {StudentsManageComponent} from './pages/students-manage/students-manage.component';
 
 
 @NgModule({
@@ -59,8 +65,10 @@ import {AddMarkToStudentFormService} from "./services/add-mark-to-student-form.s
     ClassesListComponent,
     AddStudentToClassesComponent,
     ClassesStudentListComponent,
-    AddMarkToStudentComponent
-
+    AddMarkToStudentComponent,
+    MenuComponent,
+    LoginComponent,
+    StudentsManageComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +87,7 @@ import {AddMarkToStudentFormService} from "./services/add-mark-to-student-form.s
   providers: [StudentFormService, StudentService, AcademicYearFormService, AcademicYearService,
     SubjectFormService, SubjectService, CourseFormService, CourseService, StudentListFormService,
     LecturerService, LecturerFormService, ClassesService, ClassesFormService, SemesterService, ClassesListFormService,
-    AddStudentToClassesFormService, AddMarkToStudentFormService, AddMarkToStudentService],
+    AddStudentToClassesFormService, AddMarkToStudentFormService, AddMarkToStudentService, UserDetailsCacheService, UserDetailsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

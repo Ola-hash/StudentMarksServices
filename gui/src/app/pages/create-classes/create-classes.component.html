@@ -4,9 +4,9 @@
     <div class="create-student__header">
       <h2 class="header-primary">Utwórz zajęcia</h2>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Kierunek studiów</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Kierunek studiów</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="subjectId">
           <mat-option *ngFor="let subjectModel of subjectModels" [value]="subjectModel.subjectId">
             {{subjectModel.name}}
@@ -19,9 +19,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Przedmiot</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Przedmiot</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="courseId">
           <mat-option *ngFor="let courseModel of coursesModels" [value]="courseModel.courseId">
             {{courseModel.name}}
@@ -34,9 +34,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Typ zajęć</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Typ zajęć</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="type">
           <mat-option *ngFor="let classType of classTypes" [value]="classType">
             {{classType}}
@@ -82,9 +82,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Nauczyciel</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Nauczyciel</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="lecturerId">
           <mat-option *ngFor="let lecturerModel of lecturerModels" [value]="lecturerModel.lecturerId">
             {{lecturerModel.lastName}} {{lecturerModel.firstName}}
@@ -97,9 +97,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div class="input-primary input-primary__container">
-      <mat-form-field appearance="fill">
-        <mat-label>Semestr</mat-label>
+    <div class="select-primary select-primary__container">
+      <span class="select-primary__label">Semestr</span>
+      <mat-form-field appearance="outline" floatLabel="never">
         <mat-select formControlName="semesterId">
           <mat-option *ngFor="let semesterModel of semesterModels" [value]="semesterModel.semesterId">
             {{semesterModel.year}} {{semesterModel.type}}

@@ -1,6 +1,7 @@
 package ua.com.studentsmarksservices.mapper;
 
 import org.springframework.stereotype.Service;
+import ua.com.studentsmarksservices.dto.CreateLecturerDTO;
 import ua.com.studentsmarksservices.dto.LecturerDTO;
 import ua.com.studentsmarksservices.entity.Lecturer;
 import ua.com.studentsmarksservices.entity.PersonalData;
@@ -12,6 +13,14 @@ public class LecturerMapper {
                 .firstName(lecturerDTO.getFirstName())
                 .lastName(lecturerDTO.getLastName())
                 .email(lecturerDTO.getEmail()).build();
+        return Lecturer.builder().personalData(personalData).build();
+    }
+
+    public Lecturer mapToLecture(CreateLecturerDTO createLecturerDTO) {
+        PersonalData personalData = PersonalData.builder()
+                .firstName(createLecturerDTO.getFirstName())
+                .lastName(createLecturerDTO.getLastName())
+                .email(createLecturerDTO.getEmail()).build();
         return Lecturer.builder().personalData(personalData).build();
     }
 
